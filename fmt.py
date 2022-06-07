@@ -151,3 +151,18 @@ if __name__ == "__main__":
     print("  geometric centre:")
     print(f"   {centre_geo.tolist()}")
     print(f"    {adress_from_lat_lon(centre_geo[0], centre_geo[1])}")
+
+    plt.figure()
+    plt.plot(coords_torch.detach().numpy()[:, 0],
+             coords_torch.detach().numpy()[:, 1],
+             'og')
+    plt.plot(centre_mean.detach().numpy()[0],
+             centre_mean.detach().numpy()[1],
+             'xr')
+    plt.plot(centre_geo.detach().numpy()[0],
+             centre_geo.detach().numpy()[1],
+             'xr')
+    plt.axis('equal')
+    plt.xlabel('latitude')
+    plt.ylabel('longitude')
+    plt.show()
